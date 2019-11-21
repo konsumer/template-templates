@@ -172,7 +172,7 @@ You have 10 marbles.
 
 #### pre-compiling
 
-There isn't really a performance difference between using `compile` first, or the immediate-mode. This technique shines in a place like a build script, where you want all the template functions, already working, without needing access to file-system or have a dependency on `template-templates` in the output :
+There isn't really a performance difference between using `compile` first, or the immediate-mode. This technique shines in a place like a build script, where you want all the template functions, already working, without needing access to file-system to load templates, or have a dependency on `template-templates` in the output:
 
 ```js
 const tt = require('template-templates')
@@ -181,7 +181,7 @@ const { readFileSync, writeFileSync } = require('fs')
 const { basename } = require('path')
 
 const out = glob(`${__dirname}/templates/*.tpl`)
-  .map(file => `module.exports.${basename(file, '.tpl')} = ` + tt.compile(readFileSync(file).toString()).toString())
+  .map(file => `module.exports.${basename(file, '.tpl')} = ${tt.compile(readFileSync(file).toString()).toString()}`)
   .join('\n')
 
 writeFileSync('templates.js', out)

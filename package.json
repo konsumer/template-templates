@@ -16,7 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/konsumer/template-templates.git"
   },
-  "keywords": [],
+  "keywords": ["template", "micro", "tiny", "literal"],
   "author": "David Konsumer <konsumer@jetboystudio.com> (http://konsumer.js.org)",
   "license": "MIT",
   "bugs": {
