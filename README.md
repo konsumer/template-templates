@@ -198,7 +198,7 @@ console.log(demo({
   company: 'MegaCorp',
   agent: 'Agent Smith',
   news: 'good',
-  reason: 'you won the lottery'
+  reason: 'you won the lottery.'
 }))
 ```
 
