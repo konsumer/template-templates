@@ -7,13 +7,16 @@ Signed Your Eternal Friends at ${vars.company},
 ${vars.agent}
 </script>
 
+<p>Here is a simple browser example:</p>
+
 <pre id="out"></pre>
 
 <script src="https://unpkg.com/template-templates"></script>
 <script>
   const out = document.getElementById('out')
   const tstring = document.getElementById('template').innerHTML
-  const template = TinyTemplate(tstring)
+  // pre-compiling, but feel free to use immediate mode.
+  const template = TemplateTemplates.compile(tstring)
   const vars = {
     name: 'Mr. Anderson',
     company: 'MegaCorp',

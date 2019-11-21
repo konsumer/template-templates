@@ -111,8 +111,27 @@ Agent Smith
 You can use it the same way in a browser. Let's imagine you want to fetch that same template, from above:
 
 ```html
-<!-- TODO -->
+<script src="https://unpkg.com/template-templates"></script>
+<script>
+  const vars = {
+    name: 'Mr. Anderson',
+    company: 'MegaCorp',
+    agent: 'Agent Smith',
+    news: 'bad',
+    reason: 'your cat died.'
+  }
+  // set tstring, somehow
+
+  const template = TemplateTemplates.compile(tstring)
+  console.log(template(vars))
+
+  // or
+  
+  console.log(TemplateTemplates(tstring, vars))
+</script>
 ```
+
+You can see a more complete example [here](https://github.com/konsumer/template-templates/blob/master/test/demo.html).
 
 ### advanced
 
