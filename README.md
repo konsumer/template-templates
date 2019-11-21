@@ -14,7 +14,7 @@ npm i template-templates
 
 ## usage
 
-*TLDR*: If you just want to see a code-example, have a look at the [unit-test](https://github.com/konsumer/template-templates/test/template-template.js)
+*TLDR*: If you just want to see a code-example, have a look at the [unit-test](https://github.com/konsumer/template-templates/blob/master/test/template-template.test.js)
 
 First, let's imagine we have a file named `demo.tpl` that looks like this:
 
