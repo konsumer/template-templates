@@ -126,7 +126,7 @@ async function run(){
     news: 'bad',
     reason: 'your cat died.'
   }
-  const tstring = await (await fetch('./dmeo.tpl')).text()
+  const tstring = await (await fetch('./demo.tpl')).text()
 
   const template = TemplateTemplates.compile(tstring)
   console.log(template(vars))
