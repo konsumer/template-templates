@@ -1,6 +1,6 @@
 {
   "name": "template-templates",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Use incredibly efficient and stupidly-tiny functions to parse plain template-strings.",
   "source": "index.js",
   "main": "dist/template-templates.js",
