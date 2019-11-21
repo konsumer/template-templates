@@ -141,6 +141,9 @@ run()
 
 You can also see an example that uses inline-templates, [here](https://github.com/konsumer/template-templates/blob/master/test/demo.html).
 
+You can get the script from [unkpg](https://unpkg.com/template-templates) or [my URL](http://konsumer.js.org/template-templates/template-templates.umd.js).
+
+
 ### advanced
 
 #### back-ticks
