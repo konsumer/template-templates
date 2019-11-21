@@ -18,6 +18,18 @@ Signed Your Eternal Friends at MegaCorp,
 Agent Smith"
 `;
 
+exports[`template-template should be able to pre-compile templates for export 1`] = `
+"function anonymous(vars
+) {
+return \`Hi \${vars.name},
+
+\${vars.news == 'good' ? 'We are delighted to inform you that' : 'We regret having to break this bad news to you, but'} \${vars.reason}
+
+Signed Your Eternal Friends at \${vars.company},
+\${vars.agent}\`
+}"
+`;
+
 exports[`template-template should handle logic of good news 1`] = `
 "Hi Mr. Anderson,
 

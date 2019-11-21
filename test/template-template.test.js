@@ -26,10 +26,17 @@ describe('template-template', () => {
     const template = tt.compile(tstring)
     expect(template(newsBad)).toMatchSnapshot()
   })
+  
   it('should be able to compile a template, in immediate mode', () => {
     expect(tt(tstring, newsBad)).toMatchSnapshot()
   })
+  
   it('should handle logic of good news', () => {
     expect(tt(tstring, newsGood)).toMatchSnapshot()
+  })
+
+  it('should be able to pre-compile templates for export', () => {
+    const template = tt.compile(tstring)
+    expect(template.toString()).toMatchSnapshot()
   })
 })

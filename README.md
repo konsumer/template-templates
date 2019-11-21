@@ -1,6 +1,6 @@
 # template-templates
 
-Use incredibly efficient and stupidly-tiny functions to parse plain [template-string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
+Use incredibly efficient and stupidly-tiny functions to parse plain [template-string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals). Your target will need to support those for it to work.
 
 It's meant to just be a zero-dependency ultra-tiny way to get compiled templates, using a familiar syntax.
 
@@ -13,6 +13,8 @@ npm i template-templates
 ```
 
 ## usage
+
+*TLDR*: If you just want to see a code-example, have a look at the [unit-test](https://github.com/konsumer/template-templates/test/template-template.js)
 
 First, let's imagine we have a file named `demo.tpl` that looks like this:
 
@@ -68,9 +70,10 @@ Agent Smith
 
 ```
 
+
 If you change your variables for good news, that works too:
 
-```
+```js
 const vars = {
   name: 'Mr. Anderson',
   company: 'MegaCorp',
@@ -133,3 +136,37 @@ console.log(tt(tstring, vars))
 You have 10 marbles.
 */
 ```
+
+#### pre-compiling
+
+There isn't really a performance difference between using `compile` first, or the immediate-mode. This technique shines in a place like a build script, where you want all the template functions, already working, without needing access to file-system or have a dependency on `template-templates` in the output :
+
+```js
+const tt = require('template-templates')
+const glob = require('glob').sync
+const { readFileSync, writeFileSync } = require('fs')
+const { basename } = require('path')
+
+const out = glob(`${__dirname}/templates/*.tpl`)
+  .map(file => `module.exports.${basename(file, '.tpl')} = ` + tt.compile(readFileSync(file).toString()).toString())
+  .join('\n')
+
+writeFileSync('templates.js', out)
+
+```
+
+then you can use them later:
+
+```js
+const { demo } = require('./templates')
+
+console.log(demo({
+  name: 'Mr. Anderson',
+  company: 'MegaCorp',
+  agent: 'Agent Smith',
+  news: 'good',
+  reason: 'you won the lottery'
+}))
+```
+
+I might use this technique in a lambda, for example, if I don't want to include `template-templates` & don't wnat to worry about how to work with the filesystem.
