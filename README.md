@@ -1,6 +1,6 @@
 # template-templates
 
-Use incredibly efficient and stupidly-tiny functions to parse plain [template-string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals). Your target will need to support those for it to work.
+Use incredibly efficient and stupidly-tiny functions to parse plain [template-string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals). Your target will [need to support those](https://caniuse.com/#feat=template-literals) for it to work.
 
 It's meant to just be a zero-dependency ultra-tiny way to get compiled templates, using a familiar syntax.
 
