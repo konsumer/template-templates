@@ -4,6 +4,17 @@ Use incredibly efficient and stupidly-tiny functions to parse plain [template-st
 
 It's meant to just be a zero-dependency ultra-tiny way to get compiled templates, using a familiar syntax.
 
+## really stupidly-tiny
+
+```
+134 B: template-templates.js.gz
+ 99 B: template-templates.js.br
+134 B: template-templates.mjs.gz
+ 99 B: template-templates.mjs.br
+196 B: template-templates.umd.js.gz
+156 B: template-templates.umd.js.br
+```
+
 ## installation
 
 Add it to you project:
