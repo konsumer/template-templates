@@ -113,6 +113,7 @@ You can use it the same way in a browser. Let's imagine you want to fetch that s
 ```html
 <script src="https://unpkg.com/template-templates"></script>
 <script>
+async function run(){
   const vars = {
     name: 'Mr. Anderson',
     company: 'MegaCorp',
@@ -120,7 +121,7 @@ You can use it the same way in a browser. Let's imagine you want to fetch that s
     news: 'bad',
     reason: 'your cat died.'
   }
-  // set tstring, somehow
+  const tstring = await (await fetch('./dmeo.tpl')).text()
 
   const template = TemplateTemplates.compile(tstring)
   console.log(template(vars))
@@ -128,10 +129,12 @@ You can use it the same way in a browser. Let's imagine you want to fetch that s
   // or
   
   console.log(TemplateTemplates(tstring, vars))
+}
+run()
 </script>
 ```
 
-You can see a more complete example [here](https://github.com/konsumer/template-templates/blob/master/test/demo.html).
+You can also see an example that uses inline-templates, [here](https://github.com/konsumer/template-templates/blob/master/test/demo.html).
 
 ### advanced
 
