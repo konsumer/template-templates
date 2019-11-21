@@ -1,0 +1,36 @@
+{
+  "name": "template-templates",
+  "version": "0.0.0",
+  "description": "Use incredibly efficient and stupidly-tiny functions to parse plain template-strings.",
+  "source": "index.js",
+  "main": "dist/template-templates.js",
+  "module": "dist/template-templates.mjs",
+  "unpkg": "dist/template-templates.umd.js",
+  "scripts": {
+    "test": "jest",
+    "prepublish": "microbundle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konsumer/template-templates.git"
+  },
+  "keywords": [],
+  "author": "David Konsumer <konsumer@jetboystudio.com> (http://konsumer.js.org)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/konsumer/template-templates/issues"
+  },
+  "homepage": "https://github.com/konsumer/template-templates#readme",
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "microbundle": "^0.11.0"
+  },
+  "files": [
+    "dist/template-templates.umd.js",
+    "dist/template-templates.umd.js.map",
+    "dist/template-templates.mjs",
+    "dist/template-templates.mjs.map",
+    "dist/template-templates.js",
+    "dist/template-templates.js.map"
+  ]
+}
