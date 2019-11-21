@@ -7,12 +7,12 @@ It's meant to just be a zero-dependency ultra-tiny way to get compiled templates
 ## really stupidly-tiny
 
 ```
-134 B: template-templates.js.gz
+133 B: template-templates.js.gz
  99 B: template-templates.js.br
-134 B: template-templates.mjs.gz
- 99 B: template-templates.mjs.br
-196 B: template-templates.umd.js.gz
-156 B: template-templates.umd.js.br
+133 B: template-templates.mjs.gz
+100 B: template-templates.mjs.br
+213 B: template-templates.umd.js.gz
+160 B: template-templates.umd.js.br
 ```
 
 ## installation

@@ -1,0 +1,25 @@
+<script type="tinytemplate" id="template">
+Hi ${vars.name},
+
+${vars.news == 'good' ? 'We are delighted to inform you that' : 'We regret having to break this bad news to you, but'} ${vars.reason}
+
+Signed Your Eternal Friends at ${vars.company},
+${vars.agent}
+</script>
+
+<pre id="out"></pre>
+
+<script src="https://unpkg.com/template-templates"></script>
+<script>
+  const out = document.getElementById('out')
+  const tstring = document.getElementById('template').innerHTML
+  const template = TinyTemplate(tstring)
+  const vars = {
+    name: 'Mr. Anderson',
+    company: 'MegaCorp',
+    agent: 'Agent Smith',
+    news: 'bad',
+    reason: 'your cat died.'
+  }
+  out.innerHTML = template(vars)
+</script>

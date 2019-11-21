@@ -8,7 +8,7 @@
   "unpkg": "dist/template-templates.umd.js",
   "scripts": {
     "test": "jest",
-    "prepublish": "microbundle --name TemplateTemplates"
+    "prepublish": "microbundle --name=TemplateTemplates"
   },
   "repository": {
     "type": "git",

@@ -8,5 +8,7 @@ const tpl = function(template, variables){
   return compile(template)(variables)
 }
 
-module.exports = tpl
-module.exports.compile = compile
+const out = tpl
+out.compile = compile
+
+export default out
