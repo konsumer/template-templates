@@ -169,4 +169,4 @@ console.log(demo({
 }))
 ```
 
-I might use this technique in a lambda, for example, if I don't want to include `template-templates` & don't wnat to worry about how to work with the filesystem.
+I might use this technique in a lambda, for example, if I don't want to include `template-templates` in the output, and I don't want to worry about how to work with the filesystem.
