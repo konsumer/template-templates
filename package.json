@@ -10,7 +10,8 @@
     "test": "jest",
     "build": "microbundle --name=TemplateTemplates",
     "prepublish": "npm run build",
-    "pretest": "npm run build"
+    "pretest": "npm run build",
+    "deploy": "cp test/demo.html dist/index.html && ghpages konsumer/template-templates -p dist"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   },
   "homepage": "https://github.com/konsumer/template-templates#readme",
   "devDependencies": {
+    "ghpages": "0.0.10",
     "jest": "^24.9.0",
     "microbundle": "^0.11.0"
   },
