@@ -1,6 +1,6 @@
 {
   "name": "template-templates",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Use incredibly efficient and stupidly-tiny functions to parse plain template-strings.",
   "source": "index.js",
   "main": "dist/template-templates.js",
@@ -16,7 +16,12 @@
     "type": "git",
     "url": "git+https://github.com/konsumer/template-templates.git"
   },
-  "keywords": ["template", "micro", "tiny", "literal"],
+  "keywords": [
+    "template",
+    "micro",
+    "tiny",
+    "literal"
+  ],
   "author": "David Konsumer <konsumer@jetboystudio.com> (http://konsumer.js.org)",
   "license": "MIT",
   "bugs": {
