@@ -122,7 +122,7 @@ You can also give it util functions, in it's variables, and use them, if you lik
 const tt = require('template-templates')
 const { pluralize } = require('inflection')
 
-const tstring = 'You have ${vars.count} ${pluralize(vars.thing, vars.count)}.'
+const tstring = 'You have ${vars.count} ${vars.pluralize(vars.thing, vars.count)}.'
 
 const vars = {
   pluralize,
