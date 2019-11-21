@@ -4,6 +4,8 @@ Use incredibly efficient and stupidly-tiny functions to parse plain [template-st
 
 It's meant to just be a zero-dependency ultra-tiny way to get compiled templates, using a familiar syntax.
 
+See [it running, here](http://konsumer.js.org/template-templates/).
+
 ## really stupidly-tiny
 
 ```
