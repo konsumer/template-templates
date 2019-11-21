@@ -30,6 +30,8 @@ Signed Your Eternal Friends at \${vars.company},
 }"
 `;
 
+exports[`template-template should be cool with backticks 1`] = `"This is a markdown string with \`code\`."`;
+
 exports[`template-template should handle logic of good news 1`] = `
 "Hi Mr. Anderson,
 

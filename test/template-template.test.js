@@ -39,4 +39,9 @@ describe('template-template', () => {
     const template = tt.compile(tstring)
     expect(template.toString()).toMatchSnapshot()
   })
+
+  it('should be cool with backticks', () => {
+    const tstring2 = 'This is a markdown string with `code`.'
+    expect(tt(tstring2)).toMatchSnapshot()
+  })
 })
