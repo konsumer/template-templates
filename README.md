@@ -9,12 +9,14 @@ See [it running, here](http://konsumer.js.org/template-templates/).
 ## really stupidly-tiny
 
 ```
-133 B: template-templates.js.gz
- 99 B: template-templates.js.br
-133 B: template-templates.mjs.gz
-100 B: template-templates.mjs.br
-213 B: template-templates.umd.js.gz
-160 B: template-templates.umd.js.br
+206 B: template-templates.cjs.gz
+171 B: template-templates.cjs.br
+183 B: template-templates.modern.js.gz
+161 B: template-templates.modern.js.br
+208 B: template-templates.mjs.gz
+179 B: template-templates.mjs.br
+290 B: template-templates.umd.js.gz
+237 B: template-templates.umd.js.br
 ```
 
 ## installation
