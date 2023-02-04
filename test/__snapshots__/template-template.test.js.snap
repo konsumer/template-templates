@@ -5,7 +5,7 @@ exports[`template-template > should be able to compile a template 1`] = `
 
 We regret having to break this bad news to you, but your cat died.
 
-Signed Your Eternal Friends at MegaCorp,
+Signed Your Eternal Friends at MetaCortex,
 Agent Smith"
 `;
 
@@ -14,7 +14,7 @@ exports[`template-template > should be able to compile a template, in immediate 
 
 We regret having to break this bad news to you, but your cat died.
 
-Signed Your Eternal Friends at MegaCorp,
+Signed Your Eternal Friends at MetaCortex,
 Agent Smith"
 `;
 
@@ -41,6 +41,6 @@ exports[`template-template > should handle logic of good news 1`] = `
 
 We are delighted to inform you that you won the lottery.
 
-Signed Your Eternal Friends at MegaCorp,
+Signed Your Eternal Friends at MetaCortex,
 Agent Smith"
 `;

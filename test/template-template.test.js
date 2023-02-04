@@ -10,7 +10,7 @@ const tstring = await readFile(`${__dirname}/demo.tpl`, 'utf8')
 // these are some vars I'm going to pass to the template
 const newsBad = {
   name: 'Mr. Anderson',
-  company: 'MegaCorp',
+  company: 'MetaCortex',
   agent: 'Agent Smith',
   news: 'bad',
   reason: 'your cat died.'
@@ -18,7 +18,7 @@ const newsBad = {
 
 const newsGood = {
   name: 'Mr. Anderson',
-  company: 'MegaCorp',
+  company: 'MetaCortex',
   agent: 'Agent Smith',
   news: 'good',
   reason: 'you won the lottery.'

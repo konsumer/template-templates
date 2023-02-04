@@ -61,7 +61,7 @@ const tstring = await readFile('demo.tpl', 'utf8')
 // these are some vars I'm going to pass to the template
 const vars = {
   name: 'Mr. Anderson',
-  company: 'MegaCorp',
+  company: 'MetaCortex',
   agent: 'Agent Smith',
   news: 'bad',
   reason: 'your cat died.'
@@ -83,7 +83,7 @@ Hi Mr. Anderson,
 
 We regret having to break this bad news to you, but your cat died.
 
-Signed Your Eternal Friends at MegaCorp,
+Signed Your Eternal Friends at MetaCortex,
 Agent Smith
 */
 
@@ -95,7 +95,7 @@ If you change your variables for good news, that works too:
 ```js
 const vars = {
   name: 'Mr. Anderson',
-  company: 'MegaCorp',
+  company: 'MetaCortex',
   agent: 'Agent Smith',
   news: 'good',
   reason: 'you won the lottery.'
@@ -108,7 +108,7 @@ Hi Mr. Anderson,
 
 We are delighted to inform you that you won the lottery.
 
-Signed Your Eternal Friends at MegaCorp,
+Signed Your Eternal Friends at MetaCortex,
 Agent Smith
 */
 
@@ -124,7 +124,7 @@ import tt from 'https://esm.run/template-templates'
 
 const vars = {
   name: 'Mr. Anderson',
-  company: 'MegaCorp',
+  company: 'MetaCortex',
   agent: 'Agent Smith',
   news: 'bad',
   reason: 'your cat died.'
@@ -199,7 +199,7 @@ import { demo } from './templates.js'
 
 console.log(demo({
   name: 'Mr. Anderson',
-  company: 'MegaCorp',
+  company: 'MetaCortex',
   agent: 'Agent Smith',
   news: 'good',
   reason: 'you won the lottery.'
