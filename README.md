@@ -71,7 +71,8 @@ const vars = {
 console.log(tt(tstring, vars))
 
 // second example: compile it for ultimate performance with re-use
-const template = tt.compile(tstring)
+// give it a list of valid vars
+const template = tt.compile(tstring, Object.keys(vars))
 
 // use it
 console.log(template(vars))
@@ -174,7 +175,7 @@ You have 10 marbles.
 
 #### pre-compiling
 
-There isn't really a huge performance difference between using `compile` first, or the immediate-mode. THe downside is that you have to tell it what variables are going to be valid, but this should be pretty simple, in most cases. This technique shines in a place like a build script, where you want all the template functions, already working, without needing access to file-system to load templates, or have a dependency on `template-templates` in the output:
+There isn't really a huge performance difference between using `compile` first, or the immediate-mode. The downside is that you have to tell it what variables are going to be valid, but this should be pretty simple, in most cases. This technique shines in a place like a build script, where you want all the template functions, already working, without needing access to file-system to load templates, or have a dependency on `template-templates` in the output:
 
 ```js
 import tt from 'template-templates'
