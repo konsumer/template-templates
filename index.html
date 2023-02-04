@@ -1,43 +1,67 @@
-<title>template templates</title>
+<html>
+  <head>
+    <title>template templates</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+    </style>
+  </head>
+</html>
 
-<style>
-  body {
-    font-family: sans-serif;
-    padding: 20px;
-  }
-</style>
-
-<script type="tinytemplate" id="template">
-Hi ${vars.name},
-
-${vars.news === 'good'
-  ? 'We are delighted to inform you that'
-  : 'We regret having to break this bad news to you, but'
-} ${vars.reason}
-
-Signed Your Eternal Friends at ${vars.company},
-${vars.agent}
-</script>
+<body>
 
 <h1>template templates</h1>
 
 <p>Learn more, <a href="https://github.com/konsumer/template-templates">here</a>.</p>
 <p>Here is a simple browser example:</p>
 
+<label for="news">news:</label>
+<select id="news">
+  <option value=good>good</option>
+  <option value=bad>bad</option>
+</select>
+
+<h3>This template:</h3>
+
+<pre id="template"></pre>
+
+<h3>Produces this output:</h3>
+
 <pre id="out"></pre>
 
-<script src="https://unpkg.com/template-templates"></script>
-<script>
-  const out = document.getElementById('out')
-  const tstring = document.getElementById('template').innerHTML
-  // pre-compiling, but feel free to use immediate mode.
-  const template = TemplateTemplates.compile(tstring)
-  const vars = {
+<script type="module">
+import { tpl } from 'https://esm.run/template-templates'
+
+const tstring = await fetch('./demo.tpl').then(r => r.text())
+document.getElementById('template').innerHTML = tstring
+
+const news ={
+  bad: {
     name: 'Mr. Anderson',
     company: 'MegaCorp',
     agent: 'Agent Smith',
     news: 'bad',
     reason: 'your cat died.'
+  },
+  good: {
+    name: 'Mr. Anderson',
+    company: 'MegaCorp',
+    agent: 'Agent Smith',
+    news: 'good',
+    reason: 'you won the lottery.'
   }
-  out.innerHTML = template(vars)
+}
+
+const newsE = document.getElementById('news')
+
+const newsChange = () => {
+  document.getElementById('out').innerHTML = tpl(tstring, news[newsE.value])
+}
+
+newsE.addEventListener('change', newsChange)
+newsChange()
 </script>
+
+</body>
