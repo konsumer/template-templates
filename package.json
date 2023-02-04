@@ -12,7 +12,7 @@
     "test": "vitest --globals --run",
     "build": "microbundle --name=TemplateTemplates",
     "prepublishOnly": "npm run build",
-    "deploy": "cp test/demo.html dist/index.html && cp test/demo.tpl dist && ghpages konsumer/template-templates -p dist",
+    "deploy": "cp test/demo.html dist/index.html && ghpages konsumer/template-templates -p dist",
     "start": "live-server test --entry-file=demo.html"
   },
   "repository": {

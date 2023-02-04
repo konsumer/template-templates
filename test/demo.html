@@ -25,7 +25,17 @@
 
 <h3>This template:</h3>
 
-<pre id="template"></pre>
+<pre id="template">
+Hi ${name},
+
+${news === 'good'
+  ? 'We are delighted to inform you that'
+  : 'We regret having to break this bad news to you, but'
+} ${reason}
+
+Signed Your Eternal Friends at ${company},
+${agent}
+</pre>
 
 <h3>Produces this output:</h3>
 
@@ -34,8 +44,8 @@
 <script type="module">
 import { tpl } from 'https://esm.run/template-templates'
 
-const tstring = await fetch('./demo.tpl').then(r => r.text())
-document.getElementById('template').innerHTML = tstring
+// const tstring = await fetch('./demo.tpl').then(r => r.text())
+const tstring = document.getElementById('template').innerHTML
 
 const news ={
   bad: {
