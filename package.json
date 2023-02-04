@@ -12,7 +12,8 @@
     "test": "vitest --globals --run",
     "build": "microbundle --name=TemplateTemplates",
     "prepublishOnly": "npm run build",
-    "deploy": "cp test/demo.html dist/index.html && ghpages konsumer/template-templates -p dist"
+    "deploy": "cp test/demo.html dist/index.html && ghpages konsumer/template-templates -p dist",
+    "start": "live-server test --entry-file=demo.html"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
   "devDependencies": {
     "@vitest/ui": "^0.28.4",
     "ghpages": "^0.0.10",
+    "live-server": "^1.2.2",
     "microbundle": "^0.15.1",
     "vitest": "^0.28.4"
   }
