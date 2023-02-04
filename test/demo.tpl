@@ -1,9 +1,9 @@
-Hi ${vars.name},
+Hi ${name},
 
-${vars.news === 'good'
+${news === 'good'
   ? 'We are delighted to inform you that'
   : 'We regret having to break this bad news to you, but'
-} ${vars.reason}
+} ${reason}
 
-Signed Your Eternal Friends at ${vars.company},
-${vars.agent}
+Signed Your Eternal Friends at ${company},
+${agent}

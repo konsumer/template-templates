@@ -1,8 +1,11 @@
-const tt = require('..')
-const { readFileSync } = require('fs')
+import tt from '../index.js'
+import { readFile } from 'fs/promises'
+import * as url from 'url';
+
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 // load the file contents
-const tstring = readFileSync(`${__dirname}/demo.tpl`).toString()
+const tstring = await readFile(`${__dirname}/demo.tpl`, 'utf8')
 
 // these are some vars I'm going to pass to the template
 const newsBad = {
@@ -21,9 +24,12 @@ const newsGood = {
   reason: 'you won the lottery.'
 }
 
+// [ 'name', 'company', 'agent', 'news', 'reason' ]
+const params = Object.keys(newsBad)
+
 describe('template-template', () => {
   it('should be able to compile a template', () => {
-    const template = tt.compile(tstring)
+    const template = tt.compile(tstring, params)
     expect(template(newsBad)).toMatchSnapshot()
   })
   
@@ -36,7 +42,7 @@ describe('template-template', () => {
   })
 
   it('should be able to pre-compile templates for export', () => {
-    const template = tt.compile(tstring)
+    const template = tt.compile(tstring, params)
     expect(template.toString()).toMatchSnapshot()
   })
 

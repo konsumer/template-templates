@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`template-template should be able to compile a template 1`] = `
+exports[`template-template > should be able to compile a template 1`] = `
 "Hi Mr. Anderson,
 
 We regret having to break this bad news to you, but your cat died.
@@ -9,7 +9,7 @@ Signed Your Eternal Friends at MegaCorp,
 Agent Smith"
 `;
 
-exports[`template-template should be able to compile a template, in immediate mode 1`] = `
+exports[`template-template > should be able to compile a template, in immediate mode 1`] = `
 "Hi Mr. Anderson,
 
 We regret having to break this bad news to you, but your cat died.
@@ -18,24 +18,25 @@ Signed Your Eternal Friends at MegaCorp,
 Agent Smith"
 `;
 
-exports[`template-template should be able to pre-compile templates for export 1`] = `
-"function anonymous(vars
+exports[`template-template > should be able to pre-compile templates for export 1`] = `
+"function anonymous(_tpltpl_vars
 ) {
-return \`Hi \${vars.name},
+const {name,company,agent,news,reason} = _tpltpl_vars
+return \`Hi \${name},
 
-\${vars.news === 'good'
+\${news === 'good'
   ? 'We are delighted to inform you that'
   : 'We regret having to break this bad news to you, but'
-} \${vars.reason}
+} \${reason}
 
-Signed Your Eternal Friends at \${vars.company},
-\${vars.agent}\`
+Signed Your Eternal Friends at \${company},
+\${agent}\`
 }"
 `;
 
-exports[`template-template should be cool with backticks 1`] = `"This is a markdown string with \`code\`."`;
+exports[`template-template > should be cool with backticks 1`] = `"This is a markdown string with \`code\`."`;
 
-exports[`template-template should handle logic of good news 1`] = `
+exports[`template-template > should handle logic of good news 1`] = `
 "Hi Mr. Anderson,
 
 We are delighted to inform you that you won the lottery.

@@ -32,29 +32,29 @@ npm i template-templates
 First, let's imagine we have a file named `demo.tpl` that looks like this:
 
 ```
-Hi ${vars.name},
+Hi ${name},
 
-${vars.news === 'good'
+${news === 'good'
   ? 'We are delighted to inform you that'
   : 'We regret having to break this bad news to you, but'
-} ${vars.reason}
+} ${reason}
 
-Signed Your Eternal Friends at ${vars.company},
-${vars.agent}
+Signed Your Eternal Friends at ${company},
+${agent}
 ```
 
-This is just a regular [template-string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals). `vars` is the input.
+This is just a regular [template-string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals). Variables are expanded into the scope.
 
 ### node
 
 There are 2 different ways to use it, which are performance-wise about the same:
 
 ```js
-const tt = require('template-templates')
-const { readFileSync } = require('fs')
+import tt from 'template-templates'
+import { readFile } from 'fs/promises'
 
 // load the file contents
-const tstring = readFileSync('demo.tpl').toString()
+const tstring = await readFile('demo.tpl', 'utf8')
 
 // these are some vars I'm going to pass to the template
 const vars = {
@@ -116,39 +116,31 @@ Agent Smith
 You can use it the same way in a browser. Let's imagine you want to fetch that same template, from above:
 
 ```html
-<script src="https://unpkg.com/template-templates"></script>
-<script>
-async function run(){
-  const vars = {
-    name: 'Mr. Anderson',
-    company: 'MegaCorp',
-    agent: 'Agent Smith',
-    news: 'bad',
-    reason: 'your cat died.'
-  }
-  const tstring = await (await fetch('./demo.tpl')).text()
+<script type="module">
+import tt from 'https://esm.run/template-templates'
 
-  const template = TemplateTemplates.compile(tstring)
-  console.log(template(vars))
-
-  // or
-  
-  console.log(TemplateTemplates(tstring, vars))
+const vars = {
+  name: 'Mr. Anderson',
+  company: 'MegaCorp',
+  agent: 'Agent Smith',
+  news: 'bad',
+  reason: 'your cat died.'
 }
-run()
+
+const tstring = await fetch('./demo.tpl').then(r => r.text())
+
+console.log(tt(tstring, vars))
 </script>
 ```
 
 You can also see an example that uses inline-templates, [here](https://github.com/konsumer/template-templates/blob/master/test/demo.html).
-
-You can get the script from [unkpg](https://unpkg.com/template-templates) or [my URL](http://konsumer.js.org/template-templates/template-templates.umd.js).
 
 
 ### advanced
 
 #### back-ticks
 
-You can use back-ticks directly in your template, if you need to:
+You can use back-ticks directly in your template, if you need to, which normally you would have to escape:
 
 ```
 This is a markdown string with `code`.
@@ -156,14 +148,14 @@ This is a markdown string with `code`.
 
 #### plugins
 
-You can also give it util functions, in it's variables, and use them, if you like. Think of this as "plugins":
+You can give it util functions, in it's variables, and use them, if you like. Think of this as "plugins":
 
 
 ```js
-const tt = require('template-templates')
-const { pluralize } = require('inflection')
+import tt from 'template-templates'
+import { pluralize } from 'inflection'
 
-const tstring = 'You have ${vars.count} ${vars.pluralize(vars.thing, vars.count)}.'
+const tstring = 'You have ${count} ${pluralize(thing, count)}.'
 
 const vars = {
   pluralize,
@@ -180,26 +172,27 @@ You have 10 marbles.
 
 #### pre-compiling
 
-There isn't really a performance difference between using `compile` first, or the immediate-mode. This technique shines in a place like a build script, where you want all the template functions, already working, without needing access to file-system to load templates, or have a dependency on `template-templates` in the output:
+There isn't really a huge performance difference between using `compile` first, or the immediate-mode. THe downside is that you have to tell it what variables are going to be valid, but this should be pretty simple, in most cases. This technique shines in a place like a build script, where you want all the template functions, already working, without needing access to file-system to load templates, or have a dependency on `template-templates` in the output:
 
 ```js
-const tt = require('template-templates')
-const glob = require('glob').sync
-const { readFileSync, writeFileSync } = require('fs')
-const { basename } = require('path')
+import tt from 'template-templates'
+import glob from 'glob-promise'
+import { readFile, writeFile } from 'fs/promises'
+import { basename } from 'path'
 
-const out = glob(`${__dirname}/templates/*.tpl`)
-  .map(file => `module.exports.${basename(file, '.tpl')} = ${tt.compile(readFileSync(file).toString()).toString()}`)
-  .join('\n')
+const out = []
+for (const file of await glob('./templates/*.tpl')) {
+  const name = basename(file, '.tpl')
+  out.push(`export const ${name} = ${tt.compile(await readFile(file, 'utf8'), ['name', 'company', 'agent', 'news', 'reason']).toString()}`))
+}
 
-writeFileSync('templates.js', out)
-
+await writeFile('templates.js', out.join('\n\n'))
 ```
 
 then you can use them later:
 
 ```js
-const { demo } = require('./templates')
+import { demo } from './templates.js'
 
 console.log(demo({
   name: 'Mr. Anderson',
@@ -210,4 +203,4 @@ console.log(demo({
 }))
 ```
 
-I might use this technique in a lambda, for example, if I don't want to include `template-templates` in the output, and I don't want to worry about how to work with the filesystem.
+I might use this technique, for example, if I don't want to include `template-templates` in the output, and I don't want to worry about how to work with the filesystem.

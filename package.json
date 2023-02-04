@@ -3,14 +3,15 @@
   "version": "0.0.12",
   "description": "Use incredibly efficient and stupidly-tiny functions to parse plain template-strings.",
   "source": "index.js",
-  "main": "dist/template-templates.js",
+  "main": "dist/template-templates.cjs",
   "module": "dist/template-templates.mjs",
   "unpkg": "dist/template-templates.umd.js",
+  "type": "module",
   "scripts": {
-    "test": "jest",
+    "test:watch": "vitest --globals --ui --open",
+    "test": "vitest --globals --run",
     "build": "microbundle --name=TemplateTemplates",
-    "prepublish": "npm run build",
-    "pretest": "npm run build",
+    "prepublishOnly": "npm run build",
     "deploy": "cp test/demo.html dist/index.html && ghpages konsumer/template-templates -p dist"
   },
   "repository": {
@@ -29,17 +30,18 @@
     "url": "https://github.com/konsumer/template-templates/issues"
   },
   "homepage": "https://github.com/konsumer/template-templates#readme",
-  "devDependencies": {
-    "ghpages": "0.0.10",
-    "jest": "^24.9.0",
-    "microbundle": "^0.11.0"
-  },
   "files": [
     "dist/template-templates.umd.js",
     "dist/template-templates.umd.js.map",
     "dist/template-templates.mjs",
     "dist/template-templates.mjs.map",
-    "dist/template-templates.js",
-    "dist/template-templates.js.map"
-  ]
+    "dist/template-templates.cjs",
+    "dist/template-templates.cjs.map"
+  ],
+  "devDependencies": {
+    "@vitest/ui": "^0.28.4",
+    "ghpages": "^0.0.10",
+    "microbundle": "^0.15.1",
+    "vitest": "^0.28.4"
+  }
 }

@@ -1,14 +1,10 @@
 // return a compiled template function
-const compile = function(template){
-  return new Function('vars', 'return `' + template.replace(/`/g, '\\`') + '`')
-}
+export const compile = (template, params=[]) => new Function('_tpltpl_vars', 'const {' + params.join(',') + '} = _tpltpl_vars\nreturn `' + template.replace(/`/g, '\\`') + '`')
+
 
 // immediate return, default export
-const tpl = function(template, variables){
-  return compile(template)(variables)
-}
+export const tpl = (template, variables={}) => compile(template, Object.keys(variables))(variables)
 
-const out = tpl
-out.compile = compile
+tpl.compile = compile
 
-export default out
+export default tpl
